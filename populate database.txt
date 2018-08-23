@@ -1,0 +1,25 @@
+CREATE DATABASE elasticsearch;
+
+use elasticsearch;
+
+CREATE TABLE employees(
+id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
+employee_id VARCHAR(50) NOT NULL UNIQUE,
+employee_name VARCHAR(50) NOT NULL
+);
+
+INSERT INTO employees (employee_id, employee_name) VALUES
+('b.purmah', 'Balkrishansingh Purmah'),
+('v.seenundun', 'Viswanathsingh Seenundun'),
+('arjoonsing.pertaub', 'Arjoonsing Pertaub'),
+('s.sibally', 'Stephen Sibally'),
+('k.ayassamy', 'Yoven Ayassamy'),
+('b.s.david',  'Bradon David'),
+('p.purmah', 'Prashant Purmah'),
+('d.joe', 'David Joe'),
+('e.joe', 'Emily Joe'),
+('j.benson', 'Joe Benson'),
+('j.doe', 'John Doe'),
+('j.pearson',  'John Pearson'),
+('j.joe', 'John Joe'),
+('h.spector', 'Harvey Spector');

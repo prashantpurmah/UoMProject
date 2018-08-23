@@ -1,13 +1,21 @@
 package com.accenture.academy.esdb.entities;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
-@JsonInclude(JsonInclude.Include.NON_EMPTY)
+@Document(indexName = "employeedata", type = "employees")
 public class Employee {
 	
-
+	@Id
 	private String employeeId;
 	private String name;
+	
+	public Employee() {	}
+
+	public Employee(String employeeId, String name) {
+		this.employeeId = employeeId;
+		this.name = name;
+	}
 
 	public String getEmployeeId() {
 		return employeeId;

@@ -1,0 +1,10 @@
+elasticsearch2.4.0 and logstash2.4.0
+
+both zip files extracted to elasticsearch folder in C:
+
+start elasticsearch with clustername alpha-q-cluster
+copy and paste db.conf file into logstash-2.4.0 folder
+got to logstash-2.4.0 bin folder
+logstash.bat agent -f c:\\elasticsearch\logstash-2.4.0\db.conf
+
+this should copy your database to the index
