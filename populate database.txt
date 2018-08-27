@@ -3,12 +3,11 @@ CREATE DATABASE elasticsearch;
 use elasticsearch;
 
 CREATE TABLE employees(
-id MEDIUMINT PRIMARY KEY AUTO_INCREMENT,
-employee_id VARCHAR(50) NOT NULL UNIQUE,
-employee_name VARCHAR(50) NOT NULL
+employee_id VARCHAR(50) PRIMARY KEY,
+name VARCHAR(50) NOT NULL
 );
 
-INSERT INTO employees (employee_id, employee_name) VALUES
+INSERT INTO employees VALUES
 ('b.purmah', 'Balkrishansingh Purmah'),
 ('v.seenundun', 'Viswanathsingh Seenundun'),
 ('arjoonsing.pertaub', 'Arjoonsing Pertaub'),

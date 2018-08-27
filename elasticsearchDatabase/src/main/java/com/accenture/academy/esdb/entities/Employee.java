@@ -1,12 +1,18 @@
 package com.accenture.academy.esdb.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 
+@Entity
+@Table(name="employees")
 @Document(indexName = "employeedata", type = "employees")
 public class Employee {
 	
 	@Id
+	@javax.persistence.Id
 	private String employeeId;
 	private String name;
 	

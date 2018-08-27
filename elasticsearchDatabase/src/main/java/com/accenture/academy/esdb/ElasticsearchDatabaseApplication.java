@@ -1,5 +1,6 @@
 package com.accenture.academy.esdb;
 
+import java.util.List;
 import java.util.Map;
 
 import org.elasticsearch.client.Client;
@@ -47,10 +48,24 @@ public class ElasticsearchDatabaseApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		printElasticSearchInfo();
-		
-		Iterable<Employee> employees = employeeService.findByName("Seenundun");
-		
-		employees.forEach(x -> System.out.println(x));
+		System.out.println(refreshIndex());
 		
 	}
+	
+	private String refreshIndex() {
+		final long start = System.currentTimeMillis();
+		if(employeeService.countIndex() != employeeService.countDB()) {
+			es.deleteIndex(Employee.class);
+			es.createIndex(Employee.class);
+			List<Employee> employeesList = employeeService.findAllFromDb();
+			for (Employee employee : employeesList) {
+				employeeService.save(employee);
+			}
+			final long runningTime = System.currentTimeMillis() - start;
+			return "Time taken to refresh index = "+ runningTime/1000.0 + "s";
+		} else {
+			return "Index up to date";
+		}
+	}
+	
 }
