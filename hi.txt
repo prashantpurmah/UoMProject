@@ -1,3 +1,3 @@
-start elasticsearch with clustername alpha-q-cluster
+start elasticsearch with clustername alpha-q-cluster in yml file
 
 run springboot app ;)
