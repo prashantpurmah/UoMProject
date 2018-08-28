@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="aee64634871d88a419d59eb743c1258a60f19700">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.1.0_21b4b9d496edf515fe2ae15659cc9557689fcae0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="7e92aadd0697922316d1395c1887a23aebec640a">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-base-9.8.0_29acc2f61dff5f46f35fd498ef6847a46e55f241.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="e79aa3d9a16f8c9f16377c0608de70a8f31e5d80">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.1.0_a238562903e355a5867a7c3ff0c4f4e8c49111d8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="6fb6ac3e8d3b9013819920d9ea11f3803c4c0033">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.1.0_4e8c0102ac1fddbc4e019add00cd30049721f81c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="0a0ef86b7fa568a52bf6214a0326ca1f1d618da7">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.1.0_8b083a8edf8a6aecf7cb46c855f4cb3cfc659ccf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-tasks\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="bf2e1838e4428616c1aa26edf43de72b5b99bf84">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-tasks-9.8.0_7782b9f942c32d277c2097ecefe9fb664746ace6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="ca3c7aa31e2726a400a6e552b93cb9f63c9a1e6d">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-compat-25.1.0_0b5c3acf362ceda95dc2b514d0ed16e2c297c383.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="1630658fbc2d222b988603c27b4a4249586fbfe7">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.1.0_03d4db44de573d027c490e28eec35d6db43f7709.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-vision\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="a30aea7df545072ad3c06f56b2efc13e67222140">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-vision-9.8.0_77c050a11e7758281996e915b1ef444648716e8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-media-compat\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="f02263e35e52668dd17b73bf961437e3d562b35f">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.1.0_e566e3648a4a31550f7c77170d925ec8a5b076c2.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\25.1.0\support-annotations-25.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="64cb6b229a8bdfd907bc8dd46839a0053e4c018d">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\support-annotations-25.1.0_a82fbc5e3431fe377726cbe2b3a654872a0c3ef0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\9.8.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="9f6d236bac26d02b410e4ee186ba517ace5ee661">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-basement-9.8.0_f2323691b7d357c112d4c25160d95d167851150f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.1.0_d6f90e8ba18317df590ae03b134c41e92bb596de.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\exploded-aar\com.android.support\support-fragment\25.1.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.1"
+        sha1="2a53c4f3518116b8c6aee0e477233f0f7da8616f">
+        <dex dex="C:\Users\v.seenundun\Desktop\Android\AndroidCameraRecognitionText\app\build\intermediates\pre-dexed\debug\com.android.support-support-fragment-25.1.0_66e7bf6b9228a5bceb14f1f35ca935a41d171a92.jar" />
+    </item>
+
+</items>
