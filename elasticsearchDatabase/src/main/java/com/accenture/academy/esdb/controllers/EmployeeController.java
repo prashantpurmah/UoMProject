@@ -52,4 +52,9 @@ public class EmployeeController {
 		}
 	}
 	
+	@GetMapping
+	public String home() {
+		return "Successful";
+	}
+	
 }

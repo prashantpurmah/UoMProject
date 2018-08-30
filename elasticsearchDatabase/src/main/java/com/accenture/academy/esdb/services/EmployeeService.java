@@ -27,7 +27,7 @@ public class EmployeeService {
 	
 	public Iterable<Employee> findByName(String name) {
         QueryBuilder queryBuilder = QueryBuilders.matchQuery("name", name)
-        		.fuzziness(Fuzziness.TWO).boost(1.0f).prefixLength(0)
+        		.fuzziness(Fuzziness.ONE).boost(1.0f).prefixLength(0)
         		.fuzzyTranspositions(true);
         
 		return employeeRepository.search(queryBuilder);
