@@ -6,34 +6,34 @@
     android:background="@color/colorPrimary">
 
     <Button
-        android:layout_width="25mm"
-        android:layout_height="25mm"
+        android:layout_width="20mm"
+        android:layout_height="20mm"
         android:text="View Assigned Assets"
-        android:layout_alignParentLeft="true"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:background="@color/colorAccent"
-        android:layout_marginTop="5mm"
-        android:layout_marginLeft="5mm"
+        android:layout_marginTop="25mm"
+
         android:id="@+id/view_button"/>
 
     <Button
-        android:layout_width="25mm"
-        android:layout_height="25mm"
+        android:layout_width="20mm"
+        android:layout_height="20mm"
         android:text="Assign"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
-        android:layout_marginTop="5mm"
+        android:layout_marginBottom="10mm"
         android:layout_marginRight="5mm"
         android:id="@+id/assign_button"/>
     <Button
-        android:layout_width="25mm"
-        android:layout_height="25mm"
+        android:layout_width="20mm"
+        android:layout_height="20mm"
         android:text="Return"
-        android:layout_centerHorizontal="true"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent"
-        android:layout_marginBottom="5mm"
+        android:layout_marginBottom="10mm"
         android:layout_marginLeft="5mm"
         android:id="@+id/return_button"/>
 
