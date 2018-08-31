@@ -131,103 +131,14 @@ public class MainActivity extends AppCompatActivity {
                                     stringBuilder.append("\n");
                                 }
                                 textView.setText(stringBuilder.toString());
-                                fetchData process = new fetchData(textView.toString());
-                                process.execute();
+//                                fetchData process = new fetchData(textView.toString(),MainActivity.this);
+//                                process.execute();
                             }
                         });
                     }
                 }
             });
         }
-    }
-
-    public boolean checkNetworkConnection() {
-        ConnectivityManager connMgr = (ConnectivityManager)
-                getSystemService(this.CONNECTIVITY_SERVICE);
-
-        NetworkInfo networkInfo = connMgr.getActiveNetworkInfo();
-        boolean isConnected = false;
-        if (networkInfo != null && (isConnected = networkInfo.isConnected())) {
-            // show "Connected" & type of network "WIFI or MOBILE"
-            tvIsConnected.setText("Connected "+networkInfo.getTypeName());
-            // change background color to red
-            tvIsConnected.setBackgroundColor(0xFF7CCC26);
-
-
-        } else {
-            // show "Not Connected"
-            tvIsConnected.setText("Not Connected");
-            // change background color to green
-            tvIsConnected.setBackgroundColor(0xFFFF0000);
-        }
-
-        return isConnected;
-    }
-
-    private class HTTPAsyncTask extends AsyncTask<String, Void, String> {
-        @Override
-        protected String doInBackground(String... urls) {
-            // params comes from the execute() call: params[0] is the url.
-            try {
-                try {
-                    return HttpPost(urls[0]);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return "Error!";
-                }
-            } catch (IOException e) {
-                return "Unable to retrieve web page. URL may be invalid.";
-            }
-        }
-        // onPostExecute displays the results of the AsyncTask.
-        @Override
-        protected void onPostExecute(String result) {
-            tvIsConnected.setText(result);
-        }
-    }
-
-    private String HttpPost(String myUrl) throws IOException, JSONException {
-        String result = "";
-
-        URL url = new URL(myUrl);
-
-        // 1. create HttpURLConnection
-        HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-        conn.setRequestMethod("POST");
-        conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
-
-        // 2. build JSON object
-        JSONObject jsonObject = buidJsonObject();
-
-        // 3. add JSON content to POST request body
-        setPostRequestContent(conn, jsonObject);
-
-        // 4. make POST request to the given URL
-        conn.connect();
-
-        // 5. return response message
-        return conn.getResponseMessage()+"";
-
-    }
-
-    private JSONObject buidJsonObject() throws JSONException {
-
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.accumulate("name", textView.getText().toString());
-
-        return jsonObject;
-    }
-
-    private void setPostRequestContent(HttpURLConnection conn,
-                                       JSONObject jsonObject) throws IOException {
-
-        OutputStream os = conn.getOutputStream();
-        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
-        writer.write(jsonObject.toString());
-        Log.i(MainActivity.class.toString(), jsonObject.toString());
-        writer.flush();
-        writer.close();
-        os.close();
     }
 
 }

@@ -6,7 +6,9 @@ import org.elasticsearch.common.unit.Fuzziness;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.accenture.academy.esdb.entities.Employee;
@@ -29,6 +31,10 @@ public class EmployeeService {
         QueryBuilder queryBuilder = QueryBuilders.matchQuery("name", name)
         		.fuzziness(Fuzziness.TWO).boost(1.0f).prefixLength(0)
         		.fuzzyTranspositions(true);
+        
+        
+        System.out.println("CONTENT-------------------");
+        System.out.println(emp.getContent());
         
 		return employeeRepository.search(queryBuilder);
     }

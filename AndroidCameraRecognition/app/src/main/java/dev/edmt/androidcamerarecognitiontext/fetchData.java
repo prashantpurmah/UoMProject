@@ -1,5 +1,7 @@
 package dev.edmt.androidcamerarecognitiontext;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import org.json.JSONArray;
@@ -13,6 +15,8 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class fetchData extends AsyncTask<Void,Void,Void> {
@@ -21,11 +25,14 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
     String singleParsed ="";
     String name = "";
     final String urlKey = "employees/";
+    List<Employee> employees = new ArrayList<>();
+    Context context;
 
     public fetchData(){}
 
-    public fetchData(String name){
+    public fetchData(String name, Context context){
         this.name = name;
+        this.context = context;
     }
 
     @Override
@@ -43,8 +50,13 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
 
             JSONArray JA = new JSONArray(data);
 
+
             for(int i =0 ;i <JA.length(); i++){
                 JSONObject JO = (JSONObject) JA.get(i);
+
+                Employee employee = new Employee(JO.get("employeeId").toString(),JO.get("name").toString());
+                employees.add(employee);
+
                 singleParsed =  "Name:" + JO.get("name") + "\n"+
                         "EmployeeId:" + JO.get("employeeId") + "\n";
 
@@ -67,6 +79,8 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
         super.onPostExecute(aVoid);
 
         MainActivity.tvIsConnected.setText(this.dataParsed);
-
+        Intent validateEmployee = new Intent(context,ValidateEmployee.class);
+        validateEmployee.putExtra("employees",(ArrayList<Employee>)employees);
+        context.startActivity(validateEmployee);
     }
 }
