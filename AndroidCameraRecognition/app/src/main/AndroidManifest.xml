@@ -25,7 +25,6 @@
             android:value="ocr" />
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".AssetDashboardActivity"></activity>
     </application>
 
 </manifest>
