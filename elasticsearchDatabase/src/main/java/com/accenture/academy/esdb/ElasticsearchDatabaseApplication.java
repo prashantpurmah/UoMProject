@@ -28,6 +28,8 @@ public class ElasticsearchDatabaseApplication implements CommandLineRunner{
 		SpringApplication.run(ElasticsearchDatabaseApplication.class, args);
 	}
 	
+	
+	
 	//useful for debug
     private void printElasticSearchInfo() {
 
