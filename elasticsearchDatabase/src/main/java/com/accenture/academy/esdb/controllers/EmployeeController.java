@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.accenture.academy.esdb.dtos.EmployeeScore;
 import com.accenture.academy.esdb.entities.Employee;
 import com.accenture.academy.esdb.services.EmployeeService;
 
@@ -27,9 +28,9 @@ public class EmployeeController {
 	}
 	
 	@GetMapping("/{name}")
-	public List<Employee> getEmployeeByName(@PathVariable String name){
-		Iterable<Employee> employees = employeeService.findByName(name);
-		List<Employee> employeesList = new ArrayList<>();
+	public List<EmployeeScore> getEmployeeByName(@PathVariable String name){
+		Iterable<EmployeeScore> employees = employeeService.findByName(name);
+		List<EmployeeScore> employeesList = new ArrayList<>();
 		employees.forEach(x -> employeesList.add(x));
 		return employeesList;
 	}

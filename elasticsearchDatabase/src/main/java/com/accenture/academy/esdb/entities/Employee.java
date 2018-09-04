@@ -41,7 +41,7 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", name=" + name + "]";
+		return "{'employeeId':" + employeeId + ", 'name':" + name + "}";
 	}
 
 	
