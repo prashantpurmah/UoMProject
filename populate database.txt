@@ -23,12 +23,46 @@ INSERT INTO employees VALUES
 ('j.joe', 'John Joe'),
 ('h.spector', 'Harvey Spector');
 
-CREATE TABLE USER(
-employee_id VARCHAR(50) PRIMARY KEY,
-employee_name VARCHAR(50) NOT NULL,
-password VARCHAR(200) NOT NULL
+CREATE TABLE assets(
+asset_id VARCHAR(50) PRIMARY KEY,
+type VARCHAR(50) NOT NULL
 );
 
-INSERT INTO USER VALUES
-('j.joe', 'John Joe'),
-('h.spector', 'Harvey Spector');
+INSERT INTO assets VALUES
+('AWS-BARCO-001-1871303037 T2-9B','BARCO'),	
+('AWS-BARCO-002-1871303033 T2-9B','BARCO'),
+('AWS-BARCO-003-1871293984 T2-9A','BARCO'),	
+('AWS-BARCO-004-1871293948 T2-9A','BARCO'),	
+('AWS-BARCO-T2-18711300011-9I','BARCO'),
+('AWS-BARCO-T2-18711300016-9I','BARCO'),	
+('AWS-BARCO-008-1871302970 T2-6B','BARCO'),	
+('AWS-BARCO-007-1871302736 T2-6B','BARCO'),	
+('AWS-BARCO-005-1871293771 T2-C1','BARCO'),
+('NXT008', 'HDMI CONVERTER'),
+('NXT011', 'HDMI CONVERTER'),
+('NXT012', 'HDMI CONVERTER'),
+('NXT013', 'HDMI CONVERTER'),
+('NXT014', 'HDMI CONVERTER'),
+('JBS NXT003 - 0ZWA14ZS2FA','JABRA'),
+('JBS NXT002 - 0ZWA164FBFA','JABRA'),
+('JBS NXT004 0ZWA14RFBFA','JABRA'),
+('Projector NXT-001', 'PROJECTOR'),	
+('Projector NXT-002', 'PROJECTOR');
+
+ 
+CREATE TABLE `employee_asset` (
+`id` INTEGER PRIMARY KEY AUTO_INCREMENT,
+`employee_id` VARCHAR(50) NOT NULL,
+`asset_id` VARCHAR(50) NOT NULL,
+`time_taken` DATETIME NOT NULL,
+`time_returned` DATETIME,
+KEY `asset_id` (`asset_id`),
+CONSTRAINT `employee_asset_ibfk_1` 
+FOREIGN KEY (`employee_id`) REFERENCES `employees` (`employee_id`),
+CONSTRAINT `employee_asset_ibfk_2`
+FOREIGN KEY (`asset_id`) REFERENCES `assets` (`asset_id`)
+);
+
+
+
+	
