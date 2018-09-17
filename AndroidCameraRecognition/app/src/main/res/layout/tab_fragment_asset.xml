@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+
+
+        <Button
+            android:id="@+id/view_button"
+            style="@style/MyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="View Assigned Assets"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:textSize="@dimen/textSizeAsset" />
+
+
+        <Button
+            android:id="@+id/assign_button"
+            style="@style/MyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Assign"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/textSizeAsset" />
+
+        <Button
+            android:id="@+id/return_button"
+            style="@style/MyButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Return"
+            android:background="@color/colorAccent"
+            android:layout_marginBottom="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginLeft="100dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/textSizeAsset" />
+
+
+</android.support.v7.widget.LinearLayoutCompat>
