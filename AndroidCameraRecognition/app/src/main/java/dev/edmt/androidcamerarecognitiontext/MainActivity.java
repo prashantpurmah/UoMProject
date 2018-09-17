@@ -1,10 +1,12 @@
 package dev.edmt.androidcamerarecognitiontext;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -30,13 +32,19 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import dev.edmt.androidcamerarecognitiontext.imageclassifier.Classifier;
+import dev.edmt.androidcamerarecognitiontext.imageclassifier.ClassifierActivity;
+import dev.edmt.androidcamerarecognitiontext.imageclassifier.Logger;
+
 public class MainActivity extends AppCompatActivity {
+    private static final Logger LOGGER = new Logger();
 
     SurfaceView cameraView;
     TextView textView;
     static TextView tvIsConnected;
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
+    String employeeName;
 
 
     @Override
@@ -52,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-
                 }
             }
             break;
@@ -130,13 +137,26 @@ public class MainActivity extends AppCompatActivity {
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
                                 }
-                                textView.setText(stringBuilder.toString());
+                                employeeName = stringBuilder.toString();
+                                textView.setText(employeeName);
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        LOGGER.e("09TEST DELAYING"+employeeName," Test", "Result: ");
+                                        Intent activityChangeIntent = new Intent(MainActivity.this, ClassifierActivity.class)
+                                                .putExtra("employeeName",employeeName);
+                                        startActivity(activityChangeIntent);
+                                        finish();
+                                    }
+                                }, 6000);
 //                                fetchData process = new fetchData(textView.toString(),MainActivity.this);
 //                                process.execute();
                             }
                         });
                     }
                 }
+
             });
         }
     }

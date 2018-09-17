@@ -3,39 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/background">
 
     <Button
-        android:layout_width="20mm"
-        android:layout_height="20mm"
-        android:text="View Assigned Assets"
+        android:id="@+id/view_button"
+        style="@style/MyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
+        android:text="View Assigned Assets"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:layout_weight="1"
         android:background="@color/colorAccent"
-        android:layout_marginTop="25mm"
-
-        android:id="@+id/view_button"/>
+        android:textSize="@dimen/textSizeAsset" />
 
     <Button
-        android:layout_width="20mm"
-        android:layout_height="20mm"
+        android:id="@+id/assign_button"
+        style="@style/MyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:text="Assign"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
-        android:layout_marginBottom="10mm"
-        android:layout_marginRight="5mm"
-        android:id="@+id/assign_button"/>
-    <Button
-        android:layout_width="20mm"
-        android:layout_height="20mm"
-        android:text="Return"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentBottom="true"
-        android:background="@color/colorAccent"
-        android:layout_marginBottom="10mm"
-        android:layout_marginLeft="5mm"
-        android:id="@+id/return_button"/>
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/textSizeAsset" />
 
+    <Button
+        android:id="@+id/return_button"
+        style="@style/MyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Return"
+        android:background="@color/colorAccent"
+        android:layout_marginBottom="100dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginLeft="100dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/textSizeAsset" />
 
 </RelativeLayout>
