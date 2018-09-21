@@ -1,6 +1,7 @@
 package dev.edmt.androidcamerarecognitiontext;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,9 +21,8 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse {
 
     EditText edtEmail,edtPassword;
     Button btnSignIn;
-    String[] userData;
-    String URL = "";
     ProgressBar progressBar;
+    AsyncResponse delegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse {
         edtEmail = (MaterialEditText) findViewById(R.id.edtEmail);
         btnSignIn = (Button) findViewById(R.id.btnSignIn);
         progressBar = (ProgressBar) findViewById(R.id.login_progressBar);
+        delegate = this;
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
 
@@ -48,27 +49,37 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse {
                 else {
                     String[] data = {edtEmail.getText().toString(), edtPassword.getText().toString()};
 
-                    ValidateUser validateUser = new ValidateUser(data);
-                    validateUser.delegate = LoginActivity.this;
+                    ValidateUser validateUser = new ValidateUser(data, delegate);
                     validateUser.execute();
-                    Log.d(LOG_DATA, "0"+data[0]+data[1]);
-
-                    Log.d(LOG_DATA, validateUser.getStatus().name());
-                    Log.d(LOG_DATA, loginResponse);
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                        Log.d(LOG_DATA, e.getMessage());
+                    if (validateUser.getStatus() == AsyncTask.Status.RUNNING){
+                        try {
+                            Thread.sleep(4000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
-                    Log.d(LOG_DATA, validateUser.getStatus().name());
-                    Log.d(LOG_DATA, loginResponse);
+                    if(loginResponse.equals("202")){
+                        progressBar.setVisibility(View.GONE);
 
-                    progressBar.setVisibility(View.GONE);
+                        Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
+                        Intent homeIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
+                        startActivity(homeIntent);
+                        finish();
+                    } else if(loginResponse.equals("401")){
+                        progressBar.setVisibility(View.GONE);
 
-                    Toast.makeText(getApplicationContext(), "Successfully Login", Toast.LENGTH_SHORT).show();
-                    Intent homeIntent = new Intent(LoginActivity.this, MainMenuActivity.class);
-                    startActivity(homeIntent);
-                    finish();
+                        Toast.makeText(getApplicationContext(), "Wrong Password", Toast.LENGTH_SHORT).show();
+                    } else if(loginResponse.equals("404")){
+                        progressBar.setVisibility(View.GONE);
+
+                        Toast.makeText(getApplicationContext(), "Username not found", Toast.LENGTH_SHORT).show();
+                    } else{
+                        progressBar.setVisibility(View.GONE);
+
+                        Toast.makeText(getApplicationContext(), "Error logging in", Toast.LENGTH_SHORT).show();
+                    }
+
+
                 }
             }
         });
@@ -77,6 +88,7 @@ public class LoginActivity extends AppCompatActivity implements AsyncResponse {
     }
     @Override
     public void processFinish(String output) {
+        Log.d(LOG_DATA, output);
         this.loginResponse = output;
     }
 }
