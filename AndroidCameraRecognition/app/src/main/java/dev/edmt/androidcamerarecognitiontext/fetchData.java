@@ -3,6 +3,7 @@ package dev.edmt.androidcamerarecognitiontext;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -18,14 +19,22 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
+import dev.edmt.androidcamerarecognitiontext.entities.Employee;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 
 public class fetchData extends AsyncTask<Void,Void,Void> {
+
+    private static final String LOG_DATA = fetchData.class.getSimpleName();
+
     String data ="";
     String dataParsed = "";
     String singleParsed ="";
     String name = "";
     final String urlKey = "employees/";
-    List<Employee> employees = new ArrayList<>();
+    List<Employee> employees;
     Context context;
 
     public fetchData(){}
@@ -35,42 +44,26 @@ public class fetchData extends AsyncTask<Void,Void,Void> {
         this.context = context;
     }
 
-    @Override
-    protected Void doInBackground(Void... voids) {
+    public void getEmployeeByName(){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.186.53.164:90/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        GitHubService service = retrofit.create(GitHubService.class);
+        Call<List<Employee>> response = service.getEmployeeByName(name);
+
         try {
-            URL url = new URL("https://xxx/xxx/"+urlKey+name);
-            HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-            InputStream inputStream = httpURLConnection.getInputStream();
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            String line = "";
-            while(line != null){
-                line = bufferedReader.readLine();
-                data = data + line;
-            }
-
-            JSONArray JA = new JSONArray(data);
-
-
-            for(int i =0 ;i <JA.length(); i++){
-                JSONObject JO = (JSONObject) JA.get(i);
-
-                Employee employee = new Employee(JO.get("employeeId").toString(),JO.get("name").toString());
-                employees.add(employee);
-
-                singleParsed =  "Name:" + JO.get("name") + "\n"+
-                        "EmployeeId:" + JO.get("employeeId") + "\n";
-
-                dataParsed = dataParsed + singleParsed +"\n" ;
-            }
-
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
+            this.employees = response.execute().body();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
-            e.printStackTrace();
+            Log.d(LOG_DATA, e.getMessage());
         }
 
+    }
+
+    @Override
+    protected Void doInBackground(Void... voids) {
+        getEmployeeByName();
         return null;
     }
 

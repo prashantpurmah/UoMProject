@@ -1,4 +1,4 @@
-package dev.edmt.androidcamerarecognitiontext;
+package dev.edmt.androidcamerarecognitiontext.entities;
 
 import com.google.gson.annotations.Expose;
 

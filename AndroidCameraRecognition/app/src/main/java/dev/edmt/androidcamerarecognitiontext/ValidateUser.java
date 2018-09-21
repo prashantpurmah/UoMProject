@@ -3,13 +3,9 @@ package dev.edmt.androidcamerarecognitiontext;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.google.gson.Gson;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.io.IOException;
 
+import dev.edmt.androidcamerarecognitiontext.entities.LoginEntity;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;

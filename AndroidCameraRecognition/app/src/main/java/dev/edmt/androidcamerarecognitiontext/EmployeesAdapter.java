@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import dev.edmt.androidcamerarecognitiontext.entities.Employee;
+
 public class EmployeesAdapter extends RecyclerView.Adapter<EmployeesAdapter.ViewHolder> {
 
     private List<Employee> mEmployees;
