@@ -28,6 +28,8 @@ public class ElasticsearchDatabaseApplication implements CommandLineRunner{
 		SpringApplication.run(ElasticsearchDatabaseApplication.class, args);
 	}
 	
+	
+	
 	//useful for debug
     private void printElasticSearchInfo() {
 
@@ -50,6 +52,12 @@ public class ElasticsearchDatabaseApplication implements CommandLineRunner{
 		
 	}
 	
+	/**
+	 * Method to check if elasticsearch index is up to date
+	 * and if it requires updating
+	 * Syncs index with database when required
+	 * @return
+	 */
 	private String refreshIndex() {
 		final long start = System.currentTimeMillis();
 		if(employeeService.countIndex() != employeeService.countDB()) {

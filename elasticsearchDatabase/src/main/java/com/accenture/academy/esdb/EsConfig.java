@@ -8,10 +8,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.elasticsearch.core.DefaultEntityMapper;
 import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
 import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.EntityMapper;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -53,14 +58,24 @@ public class EsConfig {
     }
 
     @Bean
-    public ElasticsearchOperations elasticsearchTemplate() throws Exception {
-        return new ElasticsearchTemplate(client());
+    public ElasticsearchOperations elasticsearchTemplate(Client client) throws Exception {
+        return new ElasticsearchTemplate(client);
     }
     
-    //Embedded Elasticsearch Server
-    /*@Bean
-    public ElasticsearchOperations elasticsearchTemplate() {
-        return new ElasticsearchTemplate(nodeBuilder().local(true).node().client());
-    }*/
+    @Bean
+    public EntityMapper entityMapper(ObjectMapper objectMapper) {
+    	return new EntityMapper() {
+            @Override
+            public String mapToString(Object object) throws IOException {
+                return objectMapper.writeValueAsString(object);
+            }
+
+            @Override
+            public <T> T mapToObject(String source, Class<T> clazz) throws IOException {
+                return objectMapper.readValue(source, clazz);
+            }
+        };
+    }
+
 
 }
